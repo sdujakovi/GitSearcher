@@ -12,7 +12,42 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
 
+    <style name="MyStyle.Cardview.GitRepository" parent="CardView">
+
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardCornerRadius">32dp</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="contentPadding">4dp</item>
+        <item name="android:layout_marginEnd">-35dp</item>
+        <item name="elevation">0dp</item>
+
+    </style>
+
+    <style name="MyStyle.Cardview.Image" parent="CardView">
+        <item name="background">@mipmap/ic_test</item>
+        <item name="cardCornerRadius">35dp</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="OwnerText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/corbb</item>
+        <item name="android:textSize">13dp</item>
+        <item name="color">@color/black_transparent</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:alpha">0.4</item>
+    </style>
+
+    <style name="GitRepositoryText" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/corbb</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:alpha">0.8</item>
+        <item name="elevation">3dp</item>
     </style>
 
 </resources>

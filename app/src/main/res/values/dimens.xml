@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="title_text">28dp</dimen>
+    <dimen name="card_view_left_margin">5dp</dimen>
+    <dimen name="card_view_right_margin">5dp</dimen>
+    <dimen name="card_view_top_margin">5dp</dimen>
+    <dimen name="card_view_bottom_margin">5dp</dimen>
+    <dimen name="card_view_height">90dp</dimen>
+    <dimen name="image_size">30dp</dimen>
 </resources>
