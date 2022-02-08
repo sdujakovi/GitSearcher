@@ -1,30 +1,45 @@
 package com.example.gitsearcher.presenter
 
 import android.content.Context
-import android.content.Intent
+import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
-import com.example.gitsearcher.`interface`.IGitRepositoryModel
+import com.example.gitsearcher.*
 import com.example.gitsearcher.`interface`.IGitRepositoryView
 import com.example.gitsearcher.model.data.GitRepository
+import com.example.gitsearcher.model.data.GitRepositoryHeader
 import com.example.gitsearcher.model.service.IService
-import com.example.gitsearcher.view.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 
 class GitRepositoryPresenter(val view: IGitRepositoryView,
                              val context: Context,
                              val searchText: String ) {
 
+
     fun getData() {
-        val data: ArrayList<GitRepository> = arrayListOf()
         Log.d("ajde", searchText.toString())
 
+        IService.createAPI().getRepositorys(searchText)
+            .enqueue(object : javax.security.auth.callback.Callback, retrofit2.Callback<GitRepositoryHeader>{
+                override fun onResponse(call: Call<GitRepositoryHeader>, response: Response<GitRepositoryHeader>) {
+                    Log.d("ajde", "u responsu")
+                    if (response.isSuccessful){
+                        Log.d("ajde", "uspjeh")
+                        view.updateView(result = response.body()!!.items)
+                    }else{
+                        Log.d("ajde", "neuspjeh")
+                    }
+                }
+                override fun onFailure(call: Call<GitRepositoryHeader>, t: Throwable) {
+                    Log.d("ajde", "on fail")
+                }
+            })
+
         /*IService.createAPI().getRepositorys(search = searchText.toString())
-            .execute(object : Callback<List<GitRepository>> {
+            .enqueue(object : Callback<List<GitRepository>> {
                 override fun onResponse(
                     call: Call<List<GitRepository>>,
                     response: Response<List<GitRepository>>
@@ -36,6 +51,7 @@ class GitRepositoryPresenter(val view: IGitRepositoryView,
                     } else {
                         Log.d("ajde", "Opet nismo dohvatili...")
                     }
+
                 }
 
                 override fun onFailure(call: Call<List<GitRepository>>, t: Throwable) {
@@ -44,7 +60,7 @@ class GitRepositoryPresenter(val view: IGitRepositoryView,
             })*/
 
 
-        var response : Response<List<GitRepository>> = IService.createAPI().getRepositorys(searchText).execute()
-        Log.d("ajde", response.body()?.size.toString())
+        /*var response : Response<List<GitRepository>> = IService.createAPI().getRepositorys(searchText).execute()
+        Log.d("ajde", response.body()?.size.toString())*/
     }
 }

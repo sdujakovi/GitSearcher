@@ -2,6 +2,7 @@ package com.example.gitsearcher.model.service
 
 import android.util.Log
 import com.example.gitsearcher.model.data.GitRepository
+import com.example.gitsearcher.model.data.GitRepositoryHeader
 import com.example.gitsearcher.util.Constants
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -17,7 +18,7 @@ interface IService {
     fun getRepositorys(
         @Query("q") search: String
 
-    ) : Call<List<GitRepository>>
+    ) : Call<GitRepositoryHeader>
 
     companion object{
 
