@@ -1,63 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/asset_background"
-    tools:context=".view.MainActivity">
+    tools:context=".view.MainActivity"
+    android:orientation="vertical"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/nav_host_fragment"
-        android:background="@drawable/asset_toolbar_background"
+        android:background="@drawable/toolbar_animation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-
+        app:contentInsetStart="0dp"
+        android:paddingTop="5dp"
         >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="135dp"
             android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_margin="10dp"
             >
 
             <TextView
-                android:id="@+id/text"
+                android:id="@+id/text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Git Searcher"
-                android:textAlignment="center"
-                android:textSize="20dp"
                 android:fontFamily="@font/corbb"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/app_name"
+                android:textAlignment="center"
+                android:textSize="@dimen/title_text"
                 app:layout_constraintBottom_toTopOf="@id/search_view"
-
+                app:layout_constraintTop_toTopOf="parent"
                 />
 
             <SearchView
                 android:id="@+id/search_view"
                 android:layout_width="match_parent"
                 android:layout_height="36dp"
-                android:layout_marginHorizontal="20dp"
+                android:layout_marginHorizontal="30dp"
                 android:background="@drawable/asset_searchbar_first"
-                app:layout_constraintTop_toBottomOf="@id/text"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:queryBackground="@android:color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view"
+                android:layout_marginBottom="25dp"
+                android:focusable="true"
+                android:closeIcon="@drawable/ic_back_custom"
+                android:queryHint="@string/search_hint"
                 />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.appcompat.widget.Toolbar>
 
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toBottomOf="@id/nav_host_fragment"
+        app:layout_constraintTop_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -65,6 +70,4 @@
         app:defaultNavHost="true"
         />
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
