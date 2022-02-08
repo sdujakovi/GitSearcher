@@ -9,12 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gitsearcher.R
 import com.example.gitsearcher.`interface`.IGitRepositoryView
 import com.example.gitsearcher.databinding.FragmentItemBinding
 import com.example.gitsearcher.databinding.FragmentListBinding
 import com.example.gitsearcher.model.data.GitRepository
 import com.example.gitsearcher.presenter.GitRepositoryPresenter
+import com.example.gitsearcher.util.RecyclerAdapter
 
 
 class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGitRepositoryView {
@@ -26,21 +28,18 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentListBinding.bind(view)
 
-
-        presenter = GitRepositoryPresenter(this, requireContext(), "sdujak")
+        presenter = GitRepositoryPresenter(this, requireContext(), "sduj")
         presenter.getData()
 
+        val recycler = binding.recyclerView
         Log.d("kreiran", "kreiran")
-
-
-        binding.button.setOnClickListener(){
-            /*val action = ListFragmentDirections.actionListFragmentToItemFragment()
-            findNavController().navigate(action)*/
-        }
     }
 
     override fun updateView(result: Any) {
         val data = result as ArrayList<GitRepository>
+
+        binding.recyclerView.adapter = RecyclerAdapter(result)
+        binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
 
     }
 
