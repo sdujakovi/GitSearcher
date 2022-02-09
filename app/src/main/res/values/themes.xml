@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- CardView style -->
     <style name="MyStyle.Cardview.GitRepository" parent="CardView">
         <item name="android:backgroundTint">@color/white_transparent</item>
         <item name="cardCornerRadius">32dp</item>
@@ -24,6 +25,7 @@
 
     </style>
 
+    <!-- CardView Image style -->
     <style name="MyStyle.Cardview.Image" parent="CardView">
         <item name="background">@mipmap/ic_test</item>
         <item name="cardCornerRadius">35dp</item>
@@ -31,6 +33,7 @@
         <item name="android:layout_marginTop">8dp</item>
     </style>
 
+    <!-- CardView OwnerText style -->
     <style name="OwnerText" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/corbb</item>
         <item name="android:textSize">18dp</item>
@@ -40,6 +43,7 @@
         <item name="android:alpha">0.4</item>
     </style>
 
+    <!-- CardView GitRepNameText style -->
     <style name="GitRepositoryText" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/corbb</item>
         <item name="android:textSize">22dp</item>
@@ -50,6 +54,7 @@
         <item name="android:maxLength">21</item>
     </style>
 
+    <!-- CardView LastUpdatedText style -->
     <style name="LastUpdateText" parent="TextAppearance.AppCompat">
         <item name="android:layout_marginTop">20dp</item>
         <item name="android:layout_marginEnd">50dp</item>
@@ -57,8 +62,5 @@
         <item name="android:text">@string/app_time</item>
         <item name="fontFamily">@font/corbb</item>
     </style>
-
-
-
 
 </resources>

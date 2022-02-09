@@ -43,7 +43,11 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     }
 
     override fun updateView(result: Any) {
-        binding.recyclerView.adapter = RecyclerAdapter(result as List<GitRepository>, cardViewLitener)
+        val dataGitRepositorys: ArrayList<GitRepository> = result as ArrayList<GitRepository>
+        dataGitRepositorys.sortByDescending{it.updatedAt
+        }
+
+        binding.recyclerView.adapter = RecyclerAdapter(dataGitRepositorys, cardViewLitener)
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 }

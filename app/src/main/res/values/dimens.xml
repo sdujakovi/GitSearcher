@@ -27,9 +27,8 @@
     <dimen name="toolbar_padding_top">5dp</dimen>
     <dimen name="toolbar_margin">10dp</dimen>
 
-
     <!-- SearchView dimensions -->
-    <dimen name="search_view_height">36dp</dimen>
+    <dimen name="search_view_height">40dp</dimen>
     <dimen name="search_view_margin_bottom">25dp</dimen>
     <dimen name="search_view_horizontal_margin">30dp</dimen>
 

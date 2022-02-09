@@ -36,9 +36,9 @@ class RecyclerAdapter(private var repositoryList: List<GitRepository>, val onCli
         }
 
     private fun TextChecker(text: String?): CharSequence? {
-        if (text!!.length > 20){
+        if (text!!.length > 17){
             val stringBuilder = StringBuilder()
-            stringBuilder.append(text.subSequence(0,16)).append(". . .")
+            stringBuilder.append(text.subSequence(0,14)).append(". . .")
 
             return stringBuilder
         }
