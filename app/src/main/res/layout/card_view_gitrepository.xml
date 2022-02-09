@@ -20,8 +20,7 @@
                 android:id="@+id/image_owner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_test_foreground"
-                android:background="@color/red_dark"
+                android:src="@drawable/app_ic_launcher"
                 android:layout_gravity="center"/>
 
         </androidx.cardview.widget.CardView>
