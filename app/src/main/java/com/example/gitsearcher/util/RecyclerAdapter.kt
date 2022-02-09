@@ -1,5 +1,6 @@
 package com.example.gitsearcher.util
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,24 +8,42 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.gitsearcher.R
 import com.example.gitsearcher.model.data.GitRepository
 
-class RecyclerAdapter(private var repositoryList: List<GitRepository>) :
+class RecyclerAdapter(private var repositoryList: List<GitRepository>, val onClickListener: OnClickListener) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
 
         inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
             val itemImage: ImageView = itemView.findViewById(R.id.image_owner)
             val itemOwner: TextView = itemView.findViewById(R.id.text_view_owner)
             val itemRepository: TextView = itemView.findViewById(R.id.text_view_repository_name)
+            val itemTime: TextView = itemView.findViewById(R.id.text_view_last_update)
 
-            init {
-                itemView.setOnClickListener { v: View ->
-                    val position: Int = absoluteAdapterPosition
-                    Toast.makeText(itemView.context, "klik", Toast.LENGTH_LONG).show()
+            fun bind(
+                gitRepository: GitRepository,
+                onClickListener: OnClickListener
+            ){
+                itemOwner.text = gitRepository.owner?.login
+                itemRepository.text = TextChecker(gitRepository.name)
+                itemTime.text = LastUpdateCalculater.CalculateTime(gitRepository.updatedAt)
+                Glide.with(itemView.context).load(gitRepository.owner?.avatarUrl).into(itemImage)
+                itemView.setOnClickListener {
+                    onClickListener.onClick(gitRepository)
                 }
             }
         }
+
+    private fun TextChecker(text: String?): CharSequence? {
+        if (text!!.length > 20){
+            val stringBuilder = StringBuilder()
+            stringBuilder.append(text.subSequence(0,16)).append(". . .")
+
+            return stringBuilder
+        }
+        return text
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v: View = LayoutInflater.from(parent.context).inflate(R.layout.card_view_gitrepository, parent, false)
@@ -32,12 +51,15 @@ class RecyclerAdapter(private var repositoryList: List<GitRepository>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemOwner.text = repositoryList[position].owner?.login
-        holder.itemRepository.text = repositoryList[position].name
-        holder.itemImage.setImageResource(R.drawable.ic_launcher_foreground)
+        val data = repositoryList[position]
+        holder.bind(data, onClickListener)
     }
 
     override fun getItemCount(): Int {
         return repositoryList.size
+    }
+
+    class OnClickListener(val clickListener: (gitRepository: GitRepository) -> Unit) {
+        fun onClick(gitRepository: GitRepository) = clickListener(gitRepository)
     }
 }
