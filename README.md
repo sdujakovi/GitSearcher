@@ -1,9 +1,9 @@
-# GitSearcher
-Git search test app
+# Git Searcher
+Jednostavniji projekt izrađen u sklopu potrage za studentskom praksom. Primjenjena je MVP arhitektura, a aplikacija uz pomoć retrofita dohvaća podatke o GitHub repozitorijima. Podaci se ispisuju unutar RecyclerViewa.
 
 ## Zamišljeni dizaj
 
-<img width="200" alt="design" src="https://user-images.githubusercontent.com/61595425/152704897-e064fec8-27fd-45f1-8d1e-1d2a1e50a0a0.png">
+Zamišljeni dizaj izrađen u AdobeXD alatu.
 
+<img width="600" alt="design" src="https://user-images.githubusercontent.com/61595425/153100231-732fd644-9a9a-42a3-8dbc-c604b9b7223e.png">
 
-<img width="200" alt="design" src="https://user-images.githubusercontent.com/61595425/152704943-b9359f64-e90f-46e2-938c-09838f42b5aa.png">
