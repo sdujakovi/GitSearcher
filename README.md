@@ -15,9 +15,10 @@ Jednostavniji projekt izrađen u sklopu potrage za studentskom praksom. Primijen
 
 Zamišljeni dizaj izrađen u AdobeXD alatu. Kombinacija monokromatičnih i komplementarnih boja. Zaglavlje je na svakom prozoru isto uz decentnu animaciju u pozadini.
 
+</br>
 <div align="center">
   <a >
-    <img width="720" alt="design" src="https://user-images.githubusercontent.com/61595425/153285184-6955ca24-9b4e-4454-9391-865f2acfbfff.png">
+    <img width="920" alt="design" src="https://user-images.githubusercontent.com/61595425/153295232-1e415b1e-4da2-4107-acff-6aaecae3c189.png">
   </a>
   </br>
    </br>
