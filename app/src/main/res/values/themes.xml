@@ -57,10 +57,13 @@
 
     <!-- CardView Image style -->
     <style name="MyStyle.Cardview.Image" parent="CardView">
-        <item name="background">@mipmap/ic_test</item>
+        <item name="background">@mipmap/ic_launcher</item>
         <item name="cardCornerRadius">35dp</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginTop">8dp</item>
+        <item name="cardElevation">5dp</item>
+        <item name="android:layout_width">@dimen/image_size</item>
+        <item name="android:layout_height">@dimen/image_size</item>
     </style>
 
     <!-- CardView OwnerText style -->
@@ -104,8 +107,10 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
         <item name="android:paddingEnd">35dp</item>
-
+        <item name="android:textSize">@dimen/small_text</item>
+        <item name="fontFamily">@font/corbelregular</item>
         <item name="android:textColor">@color/red_dark</item>
+        <item name="android:layout_alignParentEnd">true</item>
     </style>
 
     <!-- Description text style-->
@@ -148,8 +153,9 @@
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">60dp</item>
         <item name="cardCornerRadius">65dp</item>
+        <item name="android:layout_marginStart">5dp</item>
         <item name="android:visibility">gone</item>
-        <item name="android:elevation">6dp</item>
+        <item name="cardElevation">5dp</item>
         <item name="android:layout_marginTop">45dp</item>
 
     </style>

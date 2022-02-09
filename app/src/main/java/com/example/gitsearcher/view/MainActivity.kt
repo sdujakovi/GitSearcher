@@ -68,9 +68,9 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
-
     /***
      * Funkcija za promjenu toolbara ovisno o destinacijskom fragmentu.
+     * todo - elegantnije riješiti cijelu situaciju sa toolbarom...
      */
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->

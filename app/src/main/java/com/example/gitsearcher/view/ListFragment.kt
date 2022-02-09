@@ -18,6 +18,9 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     lateinit var  presenter: GitRepositoryPresenter
     private lateinit var binding: FragmentListBinding
 
+    /***
+     * Definiranje događaja na klik elementa RecylcerRiewa (CardView)
+     */
     private val cardViewLitener = RecyclerAdapter.OnClickListener{
         val action = ListFragmentDirections.actionListFragmentToItemFragment(it)
         findNavController().navigate(action)

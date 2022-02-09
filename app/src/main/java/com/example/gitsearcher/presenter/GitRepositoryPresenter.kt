@@ -14,9 +14,10 @@ import retrofit2.Response
 class GitRepositoryPresenter(val view: IGitRepositoryView,
                              val context: Context,
                              val searchText: String ) : IGitRepositoryPresenter{
-
+    /***
+     * Funkcija za poziv dohvaćanja podataka sa enqueue(bez corutina)
+     */
     override fun getData() {
-
         IService.createAPI().getRepositorys(searchText)
             .enqueue(object : javax.security.auth.callback.Callback,
                 retrofit2.Callback<GitRepositoryHeader>{

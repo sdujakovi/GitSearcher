@@ -1,6 +1,8 @@
 package com.example.gitsearcher.interfaces
 
+import com.example.gitsearcher.model.data.GitRepositoryHeader
+
 interface IGitRepositoryModel {
-    fun getGitRepositoryData(searchText: String, presenter: IGitRepositoryPresenter)
-    fun getGitRepository() : String
+    //implementirano u model.service.IService
+    fun getGitRepository() : GitRepositoryHeader
 }

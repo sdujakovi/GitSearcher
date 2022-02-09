@@ -22,15 +22,21 @@ class ItemFragment : Fragment(R.layout.fragment_item){
 
     private lateinit var binding: FragmentItemBinding
 
+    /***
+     *
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentItemBinding.bind(view)
-
 
         var repOwner : TextView? = activity?.findViewById(R.id.item_owner_name)
         var repName : TextView? = activity?.findViewById(R.id.item_repository_name)
         var repOwnerImage : ImageView? = activity?.findViewById(R.id.item_owner_image)
 
+        /***
+         * Popunjavanje zaglavlja(toolbar podataka)
+         * Ako je tekst duži od 13 slova, dijeli se u dva reda uz pomoć /n
+         */
         var repNameText = args.gitRepositoryArg.name
         if(repNameText!!.length > 13){
             var stringBuilder = StringBuilder()
@@ -39,14 +45,18 @@ class ItemFragment : Fragment(R.layout.fragment_item){
             stringBuilder.append(firstLine).append("\n").append(secondLine)
             repNameText = stringBuilder.toString()
         }
-
-        //Popunjavanje podataka podataka zaglavlja
         repName?.text = repNameText
         repOwner?.text = args.gitRepositoryArg.owner?.login
         Glide.with(requireActivity()).load(args.gitRepositoryArg.owner?.avatarUrl).into(repOwnerImage!!)
 
+        fillBody()
+    }
 
-
+    /***
+     * Funkcija za popunjavanje tijela, tj. podataka
+     * o opisu repozitorija i zadnjem ažuriranju
+     */
+    private fun fillBody(){
         if(args.gitRepositoryArg.description.toString() == "null"){
             binding.textViewDescriptionItem.text = getText(R.string.description_text)
         }else{
@@ -55,8 +65,5 @@ class ItemFragment : Fragment(R.layout.fragment_item){
         binding.textViewUpdateItem.text = LastUpdateCalculater.CalculateTimeExtended(
             args.gitRepositoryArg.updatedAt.toString()
         )
-
     }
-
-
 }

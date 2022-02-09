@@ -14,19 +14,15 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_image"
-            android:layout_width="@dimen/image_size"
-            android:layout_height="@dimen/image_size"
-            app:cardElevation="@dimen/cardview_elevation"
-            style="@style/MyStyle.Cardview.Image"
-            >
+            style="@style/MyStyle.Cardview.Image">
+
             <ImageView
                 android:id="@+id/image_owner"
-                android:layout_width="@dimen/image_size"
-                android:layout_height="@dimen/image_size"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@drawable/ic_test_foreground"
                 android:background="@color/red_dark"
-                android:layout_gravity="center"
-                />
+                android:layout_gravity="center"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -48,15 +44,9 @@
             android:id="@+id/text_view_last_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignEnd="@id/text_view_repository_name"
-            android:textSize="@dimen/small_text"
-            android:fontFamily="@font/corbellight"
-            style="@style/LastUpdateText"
-/>
+            style="@style/LastUpdateText"/>
 
     </RelativeLayout>
-
-
 
 </androidx.cardview.widget.CardView>

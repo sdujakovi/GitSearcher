@@ -23,6 +23,11 @@ interface IService {
 
     companion object{
 
+        /***
+         * Kreiranje poziva retrofita.
+         * Gson builder za lakšu obradu datuma (sortiranje odmah pri dohvaćanju).
+         * Dodan Okkhtp za lakše debagiranje.
+         */
         fun createAPI(): IService{
             val icp = HttpLoggingInterceptor()
             icp.setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -40,8 +45,6 @@ interface IService {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build()
-
-            Log.d("ajde", "kreiran retrofit")
 
             return  retrofit.create(IService::class.java)
         }

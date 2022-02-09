@@ -12,10 +12,14 @@ import com.bumptech.glide.Glide
 import com.example.gitsearcher.R
 import com.example.gitsearcher.model.data.GitRepository
 
+
 class RecyclerAdapter(private var repositoryList: List<GitRepository>, val onClickListener: OnClickListener) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
 
-        inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    /***
+     * povezivanje na cardviewove za recycler view (mozda postoji bolji način od findViewById()?!)
+     */
+    inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
             val itemImage: ImageView = itemView.findViewById(R.id.image_owner)
             val itemOwner: TextView = itemView.findViewById(R.id.text_view_owner)
             val itemRepository: TextView = itemView.findViewById(R.id.text_view_repository_name)
