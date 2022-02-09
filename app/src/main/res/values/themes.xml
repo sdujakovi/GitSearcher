@@ -15,8 +15,7 @@
     </style>
 
     <style name="MyStyle.Cardview.GitRepository" parent="CardView">
-
-        <item name="cardBackgroundColor">@color/white</item>
+        <item name="android:backgroundTint">@color/white_transparent</item>
         <item name="cardCornerRadius">32dp</item>
         <item name="cardUseCompatPadding">true</item>
         <item name="contentPadding">4dp</item>
@@ -34,20 +33,32 @@
 
     <style name="OwnerText" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/corbb</item>
-        <item name="android:textSize">13dp</item>
+        <item name="android:textSize">18dp</item>
         <item name="color">@color/black_transparent</item>
-        <item name="android:layout_marginTop">7dp</item>
-        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">55dp</item>
         <item name="android:alpha">0.4</item>
     </style>
 
     <style name="GitRepositoryText" parent="TextAppearance.AppCompat">
         <item name="android:fontFamily">@font/corbb</item>
-        <item name="android:textSize">18dp</item>
-        <item name="android:layout_marginTop">16dp</item>
-        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:textSize">22dp</item>
+        <item name="android:layout_marginTop">22dp</item>
+        <item name="android:layout_marginStart">55dp</item>
         <item name="android:alpha">0.8</item>
         <item name="elevation">3dp</item>
+        <item name="android:maxLength">21</item>
     </style>
+
+    <style name="LastUpdateText" parent="TextAppearance.AppCompat">
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginEnd">50dp</item>
+        <item name="android:textColor">@color/red_light</item>
+        <item name="android:text">@string/app_time</item>
+        <item name="fontFamily">@font/corbb</item>
+    </style>
+
+
+
 
 </resources>

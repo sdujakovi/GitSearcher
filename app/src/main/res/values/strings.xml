@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Git Searcher</string>
-
     <string name="search_hint">Search som repos...</string>
+    <string name="app_time">1 h ago</string>
 </resources>
