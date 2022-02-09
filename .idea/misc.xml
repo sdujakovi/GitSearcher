@@ -9,6 +9,7 @@
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/asset_background_nosearch.xml" value="0.1" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/asset_background_search.xml" value="0.1055" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/asset_background_second.xml" value="0.1705" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/asset_main_background.xml" value="0.106" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/asset_searchbar_first.xml" value="0.1" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/asset_searchbar_second.xml" value="0.1" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/asset_toolbar_background.xml" value="0.1535" />
@@ -23,13 +24,18 @@
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/ic_search_24px.xml" value="0.1535" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/ic_test_background.xml" value="0.1125" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_animation.xml" value="0.1705" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_animation_short.xml" value="0.1" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_background_1.xml" value="0.1" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_background_2.xml" value="0.106" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_background_3.xml" value="0.1" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_background_short_1.xml" value="0.106" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_background_short_2.xml" value="0.106" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/drawable/toolbar_background_short_3.xml" value="0.106" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/font/font.xml" value="0.190625" />
-        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/layout/card_view_git_repository.xml" value="0.12" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/layout/card_view_gitrepository.xml" value="0.22" />
-        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/layout/fragment_item.xml" value="0.21693840579710144" />
+        <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/layout/fragment_item.xml" value="0.22" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/layout/fragment_list.xml" value="0.1" />
         <entry key="..\:/Users/dujak/AndroidStudioProjects/GitSearcher/app/src/main/res/menu/menu.xml" value="0.14375" />
       </map>

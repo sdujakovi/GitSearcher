@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Text dimensions -->
-    <dimen name="title_text">28dp</dimen>
+    <dimen name="small_text">16dp</dimen>
+    <dimen name="middle_text">20dp</dimen>
+    <dimen name="large_text">28dp</dimen>
 
     <!-- CardView dimensions -->
     <dimen name="card_view_left_margin">5dp</dimen>
@@ -19,8 +21,8 @@
     <!-- RecyclerView dimensions -->
     <dimen name="recycler_view_margin">10dp</dimen>
     <dimen name="recycler_view_remove_end_margin">0dp</dimen>
-    <dimen name="recycler_view_remove_bottom_margin">-10dp</dimen>
-    <dimen name="recycler_view_bottom_pading">5dp</dimen>
+    <dimen name="recycler_view_remove_bottom_margin">-5dp</dimen>
+    <dimen name="recycler_view_bottom_pading">15dp</dimen>
 
     <!-- Toolbar dimensions -->
     <dimen name="toolbar_inset_start">5dp</dimen>

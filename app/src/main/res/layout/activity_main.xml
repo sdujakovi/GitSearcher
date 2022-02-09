@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/asset_main_background"
     tools:context=".view.MainActivity"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -20,25 +19,18 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:contentInsetStart="@dimen/toolbar_inset_start"
-        android:paddingTop="@dimen/toolbar_padding_top"
-        >
+        android:paddingTop="@dimen/toolbar_padding_top">
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="135dp"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/toolbar_margin"
-            >
+            style="@style/ToolbarHolder">
 
             <TextView
-                android:id="@+id/text_view"
+                android:id="@+id/text_view_app_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/corbb"
-                android:text="@string/app_name"
-                android:textAlignment="center"
-                android:textSize="@dimen/title_text"
                 app:layout_constraintBottom_toTopOf="@id/search_view"
                 app:layout_constraintTop_toTopOf="parent"
+                style="@style/ToolbarHeaderText"
                 />
 
             <SearchView
@@ -46,17 +38,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/search_view_height"
                 android:layout_marginHorizontal="@dimen/search_view_horizontal_margin"
-                android:background="@drawable/asset_searchbar_first"
-                android:queryBackground="@android:color/transparent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_view"
-                android:layout_marginBottom="@dimen/search_view_margin_bottom"
-                android:focusable="true"
-                android:closeIcon="@drawable/ic_back_custom"
-                android:queryHint="@string/search_hint"
-                android:iconifiedByDefault="false"
+                app:layout_constraintTop_toBottomOf="@id/text_view_app_name"
+                style="@style/ToolbarSearchView"
                 />
-            
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/item_owner_image_cardview"
+                app:layout_constraintTop_toBottomOf="@id/search_view"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/ImageHolderItemFragment">
+
+                <ImageView
+                    android:id="@+id/item_owner_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_test_foreground"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/item_owner_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/item_owner_image_cardview"
+                style="@style/OwnerTextItemFragment" />
+
+            <TextView
+                android:id="@+id/item_repository_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/item_owner_name"
+                app:layout_constraintStart_toEndOf="@id/item_owner_image_cardview"
+                style="@style/NameTextItemFragment"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
@@ -68,7 +84,6 @@
         android:layout_height="match_parent"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph"
-        app:defaultNavHost="true"
+        app:defaultNavHost="true" />
 
-        />
 </LinearLayout>

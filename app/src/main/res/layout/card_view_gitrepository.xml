@@ -50,6 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignEnd="@id/text_view_repository_name"
+            android:textSize="@dimen/small_text"
+            android:fontFamily="@font/corbellight"
             style="@style/LastUpdateText"
 />
 

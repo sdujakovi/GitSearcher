@@ -2,4 +2,9 @@
     <string name="app_name">Git Searcher</string>
     <string name="search_hint">Search some repos...</string>
     <string name="app_time">1 h ago</string>
+    <string name="last_update">last updated</string>
+    <string name="description">description</string>
+    <string name="description_text">This repository has no description!</string>
+    <string name="owner_name">Owner</string>
+    <string name="repository_name">Repository</string>
 </resources>
