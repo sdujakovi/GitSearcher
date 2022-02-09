@@ -1,4 +1,4 @@
-# GitSearcher
+# Git Searcher
 Jednostavniji projekt izrađen u sklopu potrage za studentskom praksom. Primjenjena je MVP arhitektura, a aplikacija uz pomoć retrofita dohvaća podatke o GitHub repozitorijima. Podaci se ispisuju unutar RecyclerViewa.
 
 ## Zamišljeni dizaj
