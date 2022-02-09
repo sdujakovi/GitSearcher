@@ -1,4 +1,4 @@
-package com.example.gitsearcher.`interface`
+package com.example.gitsearcher.interfaces
 
 interface IGitRepositoryModel {
     fun getGitRepositoryData(searchText: String, presenter: IGitRepositoryPresenter)
