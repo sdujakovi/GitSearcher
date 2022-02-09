@@ -13,7 +13,7 @@ Jednostavniji projekt izrađen u sklopu potrage za studentskom praksom. Primijen
 
 ## Zamišljeni dizaj
 
-Zamišljeni dizaj izrađen u AdobeXD alatu.
+Zamišljeni dizaj izrađen u AdobeXD alatu. Kombinacija monokromatičnih i komplementarnih boja. Zaglavlje je na svakom prozoru isto uz decentnu animaciju u pozadini.
 
 <div align="center">
   <a >
