@@ -3,6 +3,7 @@ package com.example.gitsearcher.view
 import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
@@ -21,6 +22,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var binding : ActivityMainBinding
 
+
+    /***
+     * Bindanje na layout
+     * Dohvaćanje host fragmenta.
+     * Postavljanje pozadine SearchViewa ovisno o focusu.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -44,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /***
+     * Pokretanje animacije toolbara.
+     */
     private fun startToolbarAnimation(binding: ActivityMainBinding) {
         val animationBar = (binding.toolbar.background as AnimationDrawable)
         animationBar.setEnterFadeDuration(100)
@@ -51,22 +61,35 @@ class MainActivity : AppCompatActivity() {
         animationBar.start()
     }
 
+    /***
+     * Funkcija za osiguravanje vraćanja na prethodni fragment u navigaciji
+     */
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
 
+    /***
+     * Funkcija za promjenu toolbara ovisno o destinacijskom fragmentu.
+     */
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.itemFragment -> {
-                    binding.textView.visibility = View.GONE
+                    binding.textViewAppName.visibility = View.GONE
                     binding.searchView.visibility = View.GONE
+                    binding.itemOwnerImageCardview.visibility = View.VISIBLE
+                    binding.itemOwnerName.visibility = View.VISIBLE
+                    binding.itemRepositoryName.visibility = View.VISIBLE
                     binding.toolbar.setNavigationIcon(R.drawable.ic_back_custom)
+
                 }
                 else -> {
-                    binding.textView.visibility = View.VISIBLE
+                    binding.textViewAppName.visibility = View.VISIBLE
                     binding.searchView.visibility = View.VISIBLE
+                    binding.itemOwnerImageCardview.visibility = View.GONE
+                    binding.itemOwnerName.visibility = View.GONE
+                    binding.itemRepositoryName.visibility = View.GONE
                 }
             }
         }

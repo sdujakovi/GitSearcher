@@ -1,7 +1,6 @@
 package com.example.gitsearcher.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.SearchView
 import androidx.navigation.fragment.findNavController
@@ -13,7 +12,6 @@ import com.example.gitsearcher.model.data.GitRepository
 import com.example.gitsearcher.presenter.GitRepositoryPresenter
 import com.example.gitsearcher.util.RecyclerAdapter
 
-
 class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGitRepositoryView {
 
     private var dataGitRepositorys: List<GitRepository> = mutableListOf<GitRepository>()
@@ -21,10 +19,16 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     private lateinit var binding: FragmentListBinding
 
     private val cardViewLitener = RecyclerAdapter.OnClickListener{
-        val action = ListFragmentDirections.actionListFragmentToItemFragment()
+        val action = ListFragmentDirections.actionListFragmentToItemFragment(it)
         findNavController().navigate(action)
     }
 
+    /***
+     * Bindanje na layout fragmenta.
+     * Koristi se findViewById za dohvat searchViewa(provjerit postoji li bolji način).
+     * Ako već postoje podaci, popunjava se sa postojećim.
+     * Instanciranje Presentera za poziv retrofita nakon submitanja unosa.
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentListBinding.bind(view)
@@ -47,14 +51,18 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
         })
     }
 
+    /***
+     * Funkcija koji poziva Presenter kako bi predao View-u dohvaćene podatke.
+     */
     override fun updateView(result: Any) {
-        val dat: ArrayList<GitRepository> = result as ArrayList<GitRepository>
-        dat.sortByDescending{it.updatedAt
-        }
-        dataGitRepositorys = dat.toList()
+        dataGitRepositorys = result as List<GitRepository>
         fillRecyclerView()
         }
 
+    /***
+     * Prikaz podataka kao lista.
+     * Funkcija za popunjavanje adaptera i layout managera recyclerviewa.
+     */
     private fun fillRecyclerView(){
         binding.recyclerView.adapter = RecyclerAdapter(dataGitRepositorys, cardViewLitener)
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)

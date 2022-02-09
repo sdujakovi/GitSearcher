@@ -22,5 +22,9 @@
         android:id="@+id/itemFragment"
         android:name="com.example.gitsearcher.view.ItemFragment"
         android:label="Repository"
-        tools:layout="@layout/fragment_item" />
+        tools:layout="@layout/fragment_item" >
+        <argument
+            android:name="gitRepositoryArg"
+            app:argType="com.example.gitsearcher.model.data.GitRepository" />
+    </fragment>
 </navigation>
