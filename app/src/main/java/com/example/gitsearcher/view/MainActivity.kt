@@ -31,25 +31,24 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         setupActionBarWithNavController(navController)
-
         visibilityNavElements(navController)
-
-        val animationBar = (binding.toolbar.background as AnimationDrawable)
-        animationBar.setEnterFadeDuration(100)
-        animationBar.setExitFadeDuration(3400)
-        animationBar.start()
-
+        startToolbarAnimation(binding)
 
         binding.searchView.setOnQueryTextFocusChangeListener { v, hasFocus ->
             if(hasFocus){
-                Toast.makeText(this, "neeesto", Toast.LENGTH_LONG)
                 v.setBackgroundResource(R.drawable.asset_searchbar_second)
             }
             else{
                 v.setBackgroundResource(R.drawable.asset_searchbar_first)
             }
-
         }
+    }
+
+    private fun startToolbarAnimation(binding: ActivityMainBinding) {
+        val animationBar = (binding.toolbar.background as AnimationDrawable)
+        animationBar.setEnterFadeDuration(100)
+        animationBar.setExitFadeDuration(3400)
+        animationBar.start()
     }
 
     override fun onSupportNavigateUp(): Boolean {
