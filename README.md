@@ -5,5 +5,5 @@ Jednostavniji projekt izrađen u sklopu potrage za studentskom praksom. Primjenj
 
 Zamišljeni dizaj izrađen u AdobeXD alatu.
 
-<img width="690" alt="design" src="https://user-images.githubusercontent.com/61595425/153200164-3edc7c9c-c67a-426d-8588-85888b3d0f6a.png">
+<img width="720" alt="design" src="https://user-images.githubusercontent.com/61595425/153285184-6955ca24-9b4e-4454-9391-865f2acfbfff.png">
 
