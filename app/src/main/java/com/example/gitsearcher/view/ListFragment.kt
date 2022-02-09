@@ -1,18 +1,13 @@
 package com.example.gitsearcher.view
 
-import android.app.Fragment
-import android.os.Binder
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
+import android.widget.SearchView
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gitsearcher.R
-import com.example.gitsearcher.`interface`.IGitRepositoryView
-import com.example.gitsearcher.databinding.FragmentItemBinding
+import com.example.gitsearcher.interfaces.IGitRepositoryView
 import com.example.gitsearcher.databinding.FragmentListBinding
 import com.example.gitsearcher.model.data.GitRepository
 import com.example.gitsearcher.presenter.GitRepositoryPresenter
@@ -24,24 +19,31 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     lateinit var  presenter: GitRepositoryPresenter
     private lateinit var binding: FragmentListBinding
 
+    private val cardViewLitener = RecyclerAdapter.OnClickListener{
+        val action = ListFragmentDirections.actionListFragmentToItemFragment()
+        findNavController().navigate(action)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentListBinding.bind(view)
 
-        presenter = GitRepositoryPresenter(this, requireContext(), "sduj")
-        presenter.getData()
+        var searchView : SearchView? = activity?.findViewById(R.id.search_view)
 
-        val recycler = binding.recyclerView
-        Log.d("kreiran", "kreiran")
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                presenter = GitRepositoryPresenter(this@ListFragment, requireContext(), query.toString())
+                presenter.getData()
+                return false
+            }
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
     }
 
     override fun updateView(result: Any) {
-        val data = result as ArrayList<GitRepository>
-
-        binding.recyclerView.adapter = RecyclerAdapter(result)
+        binding.recyclerView.adapter = RecyclerAdapter(result as List<GitRepository>, cardViewLitener)
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
-
     }
-
-
 }
