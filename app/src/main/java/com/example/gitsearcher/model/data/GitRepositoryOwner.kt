@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class GitRepositoryOwner(
+
     @SerializedName("login"               ) var login             : String?  = null,
     @SerializedName("id"                  ) var id                : Int?     = null,
     @SerializedName("node_id"             ) var nodeId            : String?  = null,
@@ -24,4 +25,5 @@ data class GitRepositoryOwner(
     @SerializedName("received_events_url" ) var receivedEventsUrl : String?  = null,
     @SerializedName("type"                ) var type              : String?  = null,
     @SerializedName("site_admin"          ) var siteAdmin         : Boolean? = null
+
 ): Parcelable {}

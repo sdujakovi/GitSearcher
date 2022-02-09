@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class GitRepository(
+
     @SerializedName("id"                ) var id               : Int?              = null,
     @SerializedName("node_id"           ) var nodeId           : String?           = null,
     @SerializedName("name"              ) var name             : String?           = null,
@@ -74,7 +75,7 @@ data class GitRepository(
     @SerializedName("archived"          ) var archived         : Boolean?          = null,
     @SerializedName("disabled"          ) var disabled         : Boolean?          = null,
     @SerializedName("open_issues_count" ) var openIssuesCount  : Int?              = null,
-    @SerializedName("license"           ) var license          : String?           = null,
+    @SerializedName("license"           ) var license          : GitRepositoryLicens?           = GitRepositoryLicens(),
     @SerializedName("allow_forking"     ) var allowForking     : Boolean?          = null,
     @SerializedName("is_template"       ) var isTemplate       : Boolean?          = null,
     @SerializedName("topics"            ) var topics           : ArrayList<String> = arrayListOf(),
@@ -84,4 +85,5 @@ data class GitRepository(
     @SerializedName("watchers"          ) var watchers         : Int?              = null,
     @SerializedName("default_branch"    ) var defaultBranch    : String?           = null,
     @SerializedName("score"             ) var score            : Int?
+
 ):Parcelable {}
