@@ -54,7 +54,9 @@
                 android:focusable="true"
                 android:closeIcon="@drawable/ic_back_custom"
                 android:queryHint="@string/search_hint"
+                android:iconifiedByDefault="false"
                 />
+            
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>

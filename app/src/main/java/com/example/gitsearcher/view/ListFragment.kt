@@ -16,6 +16,7 @@ import com.example.gitsearcher.util.RecyclerAdapter
 
 class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGitRepositoryView {
 
+    private var dataGitRepositorys: List<GitRepository> = mutableListOf<GitRepository>()
     lateinit var  presenter: GitRepositoryPresenter
     private lateinit var binding: FragmentListBinding
 
@@ -30,6 +31,10 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
 
         var searchView : SearchView? = activity?.findViewById(R.id.search_view)
 
+        if(!dataGitRepositorys.isEmpty()){
+            fillRecyclerView()
+        }
+
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 presenter = GitRepositoryPresenter(this@ListFragment, requireContext(), query.toString())
@@ -43,10 +48,14 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     }
 
     override fun updateView(result: Any) {
-        val dataGitRepositorys: ArrayList<GitRepository> = result as ArrayList<GitRepository>
-        dataGitRepositorys.sortByDescending{it.updatedAt
+        val dat: ArrayList<GitRepository> = result as ArrayList<GitRepository>
+        dat.sortByDescending{it.updatedAt
+        }
+        dataGitRepositorys = dat.toList()
+        fillRecyclerView()
         }
 
+    private fun fillRecyclerView(){
         binding.recyclerView.adapter = RecyclerAdapter(dataGitRepositorys, cardViewLitener)
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
