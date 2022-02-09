@@ -1,4 +1,5 @@
 <resources>
+    <!--My strings-->
     <string name="app_name">Git Searcher</string>
     <string name="search_hint">Search some repos...</string>
     <string name="app_time">1 h ago</string>
