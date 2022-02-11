@@ -2,7 +2,7 @@ package com.example.gitsearcher.util
 
 class Constants{
     /***
-     * Konstante potrebne za kreiranje retrofit poziva
+     * Constants used for creating the Retrofit2 call
      */
     companion object{
         const val BASE_URL = "https://api.github.com/"

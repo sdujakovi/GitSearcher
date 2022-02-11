@@ -19,7 +19,7 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     private lateinit var binding: FragmentListBinding
 
     /***
-     * Definiranje događaja na klik elementa RecylcerRiewa (CardView)
+     * Defining onClick event for CardView elements.
      */
     private val cardViewLitener = RecyclerAdapter.OnClickListener{
         val action = ListFragmentDirections.actionListFragmentToItemFragment(it)
@@ -27,10 +27,10 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     }
 
     /***
-     * Bindanje na layout fragmenta.
-     * Koristi se findViewById za dohvat searchViewa(provjerit postoji li bolji način).
-     * Ako već postoje podaci, popunjava se sa postojećim.
-     * Instanciranje Presentera za poziv retrofita nakon submitanja unosa.
+     * Binding to fragment layout.
+     * Use of findViewById for binding on SearchView.
+     * If data already exist fill up with existing data.
+     * Instantiation of presenter for retrofit call after submit SearchView.
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,7 +55,7 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
     }
 
     /***
-     * Funkcija koji poziva Presenter kako bi predao View-u dohvaćene podatke.
+     * Method called by presenter component for handover of obtained data.
      */
     override fun updateView(result: Any) {
         dataGitRepositorys = result as List<GitRepository>
@@ -63,8 +63,7 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
         }
 
     /***
-     * Prikaz podataka kao lista.
-     * Funkcija za popunjavanje adaptera i layout managera recyclerviewa.
+     * Method for filling up RecyclerView adapter and layout manager.
      */
     private fun fillRecyclerView(){
         binding.recyclerView.adapter = RecyclerAdapter(dataGitRepositorys, cardViewLitener)

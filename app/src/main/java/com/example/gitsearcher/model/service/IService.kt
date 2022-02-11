@@ -23,10 +23,11 @@ interface IService {
 
     companion object{
 
+
         /***
-         * Kreiranje poziva retrofita.
-         * Gson builder za lakšu obradu datuma (sortiranje odmah pri dohvaćanju).
-         * Dodan Okkhtp za lakše debagiranje.
+         * Method implements Retrofit2 call build.
+         * Implements Gson for date sort.
+         * Implements OkHttp for debug
          */
         fun createAPI(): IService{
             val icp = HttpLoggingInterceptor()

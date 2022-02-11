@@ -22,11 +22,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var binding : ActivityMainBinding
 
-
     /***
-     * Bindanje na layout
-     * Dohvaćanje host fragmenta.
-     * Postavljanje pozadine SearchViewa ovisno o focusu.
+     * Binding to host fragment layout.
+     * Setup SearchView background based on focus.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /***
-     * Pokretanje animacije toolbara.
+     * Method for starting up toolbar animation.
      */
     private fun startToolbarAnimation(binding: ActivityMainBinding) {
         val animationBar = (binding.toolbar.background as AnimationDrawable)
@@ -62,15 +60,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     /***
-     * Funkcija za osiguravanje vraćanja na prethodni fragment u navigaciji
+     * Method provides turning back to last visited fragment.
      */
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     /***
-     * Funkcija za promjenu toolbara ovisno o destinacijskom fragmentu.
-     * todo - elegantnije riješiti cijelu situaciju sa toolbarom...
+     * Method changes toolbar content based on destination fragment.
+     * todo - find a more elegant toolbar solution...
      */
     private fun visibilityNavElements(navController: NavController) {
         navController.addOnDestinationChangedListener { _, destination, _ ->

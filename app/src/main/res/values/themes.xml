@@ -91,7 +91,7 @@
 
     <!-- \\\\\\\\\\\\\\\\ITEM VIEW BODY\\\\\\\\\\\\\\\\\-->
     <!-- Lables in itemFragment layout style -->
-    <style name="ItemViewLable" parent="TextAppearance.AppCompat">
+    <style name="ItemViewLabel" parent="TextAppearance.AppCompat">
         <item name="android:layout_marginTop">20dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:layout_marginStart">20dp</item>

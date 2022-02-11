@@ -15,7 +15,7 @@ class GitRepositoryPresenter(val view: IGitRepositoryView,
                              val context: Context,
                              val searchText: String ) : IGitRepositoryPresenter{
     /***
-     * Funkcija za poziv dohvaćanja podataka sa enqueue(bez corutina)
+     * Method implements use of Retrofit2 calls with enqueue(with out corutines)
      */
     override fun getData() {
         IService.createAPI().getRepositorys(searchText)

@@ -17,7 +17,8 @@ class RecyclerAdapter(private var repositoryList: List<GitRepository>, val onCli
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>(){
 
     /***
-     * povezivanje na cardviewove za recycler view (mozda postoji bolji način od findViewById()?!)
+     * Binding on CardView elements for fill up of RecyclerView
+     * Ask for better way than findViewById
      */
     inner class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
             val itemImage: ImageView = itemView.findViewById(R.id.image_owner)
@@ -39,6 +40,10 @@ class RecyclerAdapter(private var repositoryList: List<GitRepository>, val onCli
             }
         }
 
+    /***
+     * Method implements checking of text length,
+     * if larger than 17 char, return first 14 and ...
+     */
     private fun TextChecker(text: String?): CharSequence? {
         if (text!!.length > 17){
             val stringBuilder = StringBuilder()
@@ -54,6 +59,9 @@ class RecyclerAdapter(private var repositoryList: List<GitRepository>, val onCli
         return ViewHolder(v)
     }
 
+    /***
+     * Method for binding data to CardView
+     */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = repositoryList[position]
         holder.bind(data, onClickListener)

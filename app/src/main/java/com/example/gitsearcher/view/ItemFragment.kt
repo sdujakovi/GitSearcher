@@ -22,9 +22,6 @@ class ItemFragment : Fragment(R.layout.fragment_item){
 
     private lateinit var binding: FragmentItemBinding
 
-    /***
-     *
-     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentItemBinding.bind(view)
@@ -34,8 +31,9 @@ class ItemFragment : Fragment(R.layout.fragment_item){
         var repOwnerImage : ImageView? = activity?.findViewById(R.id.item_owner_image)
 
         /***
-         * Popunjavanje zaglavlja(toolbar podataka)
-         * Ako je tekst duži od 13 slova, dijeli se u dva reda uz pomoć /n
+         * Filling up data in toolbar
+         * If the text of GitRepository name is larger than 13,
+         * display in 2 lines
          */
         var repNameText = args.gitRepositoryArg.name
         if(repNameText!!.length > 13){
@@ -53,8 +51,9 @@ class ItemFragment : Fragment(R.layout.fragment_item){
     }
 
     /***
-     * Funkcija za popunjavanje tijela, tj. podataka
-     * o opisu repozitorija i zadnjem ažuriranju
+     * Method for filling up the body data.
+     * Binds description and last update data
+     * to concrete views
      */
     private fun fillBody(){
         if(args.gitRepositoryArg.description.toString() == "null"){
