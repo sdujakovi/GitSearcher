@@ -17,8 +17,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 interface IService {
     @GET(Constants.SEARCH)
     fun getRepositorys(
-        @Query("q") search: String
-
+        @Query("q")     search: String,
+        @Query("sort")  sort: String
     ) : Call<GitRepositoryHeader>
 
     companion object{

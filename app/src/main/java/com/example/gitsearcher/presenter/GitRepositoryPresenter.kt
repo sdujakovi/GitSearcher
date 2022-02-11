@@ -1,12 +1,12 @@
 package com.example.gitsearcher.presenter
 
-import android.content.Context
 import android.util.Log
 import com.example.gitsearcher.interfaces.IGitRepositoryPresenter
 import com.example.gitsearcher.interfaces.IGitRepositoryView
 import com.example.gitsearcher.model.data.GitRepository
 import com.example.gitsearcher.model.data.GitRepositoryHeader
 import com.example.gitsearcher.model.service.IService
+import com.example.gitsearcher.util.Constants.Companion.SORT_BY_UPDATE
 import retrofit2.Call
 import retrofit2.Response
 
@@ -27,7 +27,7 @@ class GitRepositoryPresenter(val view: IGitRepositoryView,
      * OnResponse provides data to view component.
      */
     override fun getData() {
-        IService.createAPI().getRepositorys(searchText)
+        IService.createAPI().getRepositorys(searchText, SORT_BY_UPDATE)
             .enqueue(object : javax.security.auth.callback.Callback,
                 retrofit2.Callback<GitRepositoryHeader>{
 
