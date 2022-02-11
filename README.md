@@ -9,7 +9,7 @@
    </br>
 </div>
 
-A simpler project made based on my search for a student internship. Implements MVP architecture, Retrofit calls, use of RecyclerView and more.
+A simple project made based on my search for a student internship. Implements MVP architecture, Retrofit calls, use of RecyclerView and more.
 
 
 ## Envisioned designe
