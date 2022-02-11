@@ -9,11 +9,12 @@
    </br>
 </div>
 
-Jednostavniji projekt izrađen u sklopu potrage za studentskom praksom. Primijenjena je MVP arhitektura, a aplikacija uz pomoć retrofit poziva dohvaća podatke o GitHub repozitorijima. Podaci se ispisuju unutar RecyclerViewa.
+A simpler project made based on my search for a student internship. Implements MVP architecture, Retrofit calls, use of RecyclerView and more.
 
-## Zamišljeni dizaj
 
-Zamišljeni dizaj izrađen u AdobeXD alatu. Kombinacija monokromatičnih i komplementarnih boja. Zaglavlje je na svakom prozoru isto uz decentnu animaciju u pozadini.
+## Envisioned designe
+
+Designed in AdobeXD tool. Designe combines complementary and monochromatic colors. Toolbars are same on all windows and implement a color intensity animation.
 
 </br>
 <div align="center">
@@ -25,11 +26,11 @@ Zamišljeni dizaj izrađen u AdobeXD alatu. Kombinacija monokromatičnih i kompl
 </div>
 
 
-## Korisnički zahtjevi
+## User requirements
 
-* Osnovna funkcija: pretraga Github repozitorija:
-  * rezultat prikazan u listi
-  * element liste mora sadržavat naziv i vrijeme zadnjeg ažuriranja
-  * prikaz soritran po datumu
-  * klik na određeni repozitorij:
-    * novi prozor sa dodatnim detaljima(naziv, zadnje ažuriranje, vlasnik, opis)
+* Base functionality: Search of GitHub repositorys
+  * show result in a list
+  * list item contains name and last update data
+  * list is sorted by last update
+  * on item click:
+    * new windows with additional data (name, last update, owner, description)
