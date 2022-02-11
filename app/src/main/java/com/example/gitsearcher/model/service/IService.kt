@@ -24,10 +24,13 @@ interface IService {
     companion object{
 
 
-        /***
-         * Method implements Retrofit2 call build.
-         * Implements Gson for date sort.
-         * Implements OkHttp for debug
+        /**
+         * Create API call method
+         *
+         * Method implements Retrofit2 call build, mplements Gson for date sort and
+         * implements OkHttp for debug.
+         *
+         * @return created retrofit call
          */
         fun createAPI(): IService{
             val icp = HttpLoggingInterceptor()

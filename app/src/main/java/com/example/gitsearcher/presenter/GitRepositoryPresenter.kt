@@ -10,12 +10,21 @@ import com.example.gitsearcher.model.service.IService
 import retrofit2.Call
 import retrofit2.Response
 
-
+/**
+ * Presenter application component.
+ *
+ * This class implements the method getData() from the presenter interface.
+ *
+ * @property view view component connected with this presenter
+ * @property searchText string which provides the user for search
+ */
 class GitRepositoryPresenter(val view: IGitRepositoryView,
-                             val context: Context,
                              val searchText: String ) : IGitRepositoryPresenter{
     /***
-     * Method implements use of Retrofit2 calls with enqueue(with out corutines)
+     * Use of created API call.
+     *
+     * Method implements use of Retrofit2 calls with enqueue(with out corutines).
+     * OnResponse provides data to view component.
      */
     override fun getData() {
         IService.createAPI().getRepositorys(searchText)

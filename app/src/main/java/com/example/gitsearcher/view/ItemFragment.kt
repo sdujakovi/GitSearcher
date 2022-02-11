@@ -1,21 +1,24 @@
 package com.example.gitsearcher.view
 
-import android.app.Activity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.gitsearcher.R
 import com.example.gitsearcher.databinding.FragmentItemBinding
-import com.example.gitsearcher.databinding.FragmentListBinding
 import com.example.gitsearcher.util.LastUpdateCalculater
 
+/**
+ * Concrete item displaying class.
+ *
+ * This class binds the fragment_item to its logic, which is
+ * showing some details of the clicked element in the previous fragment.
+ *
+ * @property args provided safeArgs from the previous fragment.
+ */
 class ItemFragment : Fragment(R.layout.fragment_item){
 
     private val args: ItemFragmentArgs by navArgs()
@@ -51,9 +54,11 @@ class ItemFragment : Fragment(R.layout.fragment_item){
     }
 
     /***
+     * Fill up body of fragment method
+     *
      * Method for filling up the body data.
      * Binds description and last update data
-     * to concrete views
+     * to concrete views.
      */
     private fun fillBody(){
         if(args.gitRepositoryArg.description.toString() == "null"){

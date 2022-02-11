@@ -1,9 +1,15 @@
 package com.example.gitsearcher.util
 
+/***
+ * API constants.
+ *
+ * This class contains all constants used for creating the Retrofit2 call.
+ * All constants are defined inside a companion object
+ *
+ * @property BASE_URL base url for API call
+ * @property SEARCH end point for API call
+ */
 class Constants{
-    /***
-     * Constants used for creating the Retrofit2 call
-     */
     companion object{
         const val BASE_URL = "https://api.github.com/"
         const val SEARCH = "search/repositories"

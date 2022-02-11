@@ -12,22 +12,25 @@ import com.example.gitsearcher.model.data.GitRepository
 import com.example.gitsearcher.presenter.GitRepositoryPresenter
 import com.example.gitsearcher.util.RecyclerAdapter
 
+/**
+ * List of items displaying class.
+ *
+ * This class binds the fragment_list to its logic, which is
+ * showing the list of all obtained repositories.
+ *
+ * @property dataGitRepositories list of all repositories obtained from the api call.
+ * @property presenter used for obtaining data.
+ */
 class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGitRepositoryView {
 
-    private var dataGitRepositorys: List<GitRepository> = mutableListOf<GitRepository>()
+    private var dataGitRepositories: List<GitRepository> = mutableListOf<GitRepository>()
     lateinit var  presenter: GitRepositoryPresenter
     private lateinit var binding: FragmentListBinding
 
     /***
-     * Defining onClick event for CardView elements.
-     */
-    private val cardViewLitener = RecyclerAdapter.OnClickListener{
-        val action = ListFragmentDirections.actionListFragmentToItemFragment(it)
-        findNavController().navigate(action)
-    }
-
-    /***
-     * Binding to fragment layout.
+     * On view created method.
+     *
+     * Binds the fragment to its layout.
      * Use of findViewById for binding on SearchView.
      * If data already exist fill up with existing data.
      * Instantiation of presenter for retrofit call after submit SearchView.
@@ -38,13 +41,13 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
 
         var searchView : SearchView? = activity?.findViewById(R.id.search_view)
 
-        if(!dataGitRepositorys.isEmpty()){
+        if(!dataGitRepositories.isEmpty()){
             fillRecyclerView()
         }
 
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                presenter = GitRepositoryPresenter(this@ListFragment, requireContext(), query.toString())
+                presenter = GitRepositoryPresenter(this@ListFragment, query.toString())
                 presenter.getData()
                 return false
             }
@@ -54,19 +57,21 @@ class ListFragment : androidx.fragment.app.Fragment(R.layout.fragment_list), IGi
         })
     }
 
-    /***
-     * Method called by presenter component for handover of obtained data.
-     */
+    //Define onClick event for CardView elements.
+    private val cardViewLitener = RecyclerAdapter.OnClickListener{
+        val action = ListFragmentDirections.actionListFragmentToItemFragment(it)
+        findNavController().navigate(action)
+    }
+
+    //Method called by presenter component for handover of obtained data.
     override fun updateView(result: Any) {
-        dataGitRepositorys = result as List<GitRepository>
+        dataGitRepositories = result as List<GitRepository>
         fillRecyclerView()
         }
 
-    /***
-     * Method for filling up RecyclerView adapter and layout manager.
-     */
+    //Method for filling up RecyclerView adapter and layout manager.
     private fun fillRecyclerView(){
-        binding.recyclerView.adapter = RecyclerAdapter(dataGitRepositorys, cardViewLitener)
+        binding.recyclerView.adapter = RecyclerAdapter(dataGitRepositories, cardViewLitener)
         binding.recyclerView.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
     }
 }

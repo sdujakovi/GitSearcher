@@ -23,8 +23,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
 
     /***
-     * Binding to host fragment layout.
-     * Setup SearchView background based on focus.
+     * When activity is creating method.
+     *
+     * Bind to host fragment layout and
+     * Setup SearchView background based on its focus.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,9 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /***
-     * Method for starting up toolbar animation.
-     */
+    //Method for starting up toolbar animation.
     private fun startToolbarAnimation(binding: ActivityMainBinding) {
         val animationBar = (binding.toolbar.background as AnimationDrawable)
         animationBar.setEnterFadeDuration(100)
@@ -59,9 +59,8 @@ class MainActivity : AppCompatActivity() {
         animationBar.start()
     }
 
-    /***
-     * Method provides turning back to last visited fragment.
-     */
+
+    //Method provides turning back to last visited fragment.
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
