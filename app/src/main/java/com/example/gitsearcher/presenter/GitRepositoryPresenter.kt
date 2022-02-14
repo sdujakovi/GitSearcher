@@ -6,6 +6,7 @@ import com.example.gitsearcher.interfaces.IGitRepositoryView
 import com.example.gitsearcher.model.data.GitRepository
 import com.example.gitsearcher.model.data.GitRepositoryHeader
 import com.example.gitsearcher.model.service.IService
+import com.example.gitsearcher.util.Constants.Companion.PER_PAGE
 import com.example.gitsearcher.util.Constants.Companion.SORT_BY_UPDATE
 import retrofit2.Call
 import retrofit2.Response
@@ -18,16 +19,15 @@ import retrofit2.Response
  * @property view view component connected with this presenter
  * @property searchText string which provides the user for search
  */
-class GitRepositoryPresenter(val view: IGitRepositoryView,
-                             val searchText: String ) : IGitRepositoryPresenter{
+class GitRepositoryPresenter(val view: IGitRepositoryView) : IGitRepositoryPresenter{
     /***
      * Use of created API call.
      *
      * Method implements use of Retrofit2 calls with enqueue(with out corutines).
      * OnResponse provides data to view component.
      */
-    override fun getData() {
-        IService.createAPI().getRepositorys(searchText, SORT_BY_UPDATE)
+    override fun getData(searchText: String, page: String) {
+        IService.createAPI().getRepositorys(searchText, SORT_BY_UPDATE, page, PER_PAGE)
             .enqueue(object : javax.security.auth.callback.Callback,
                 retrofit2.Callback<GitRepositoryHeader>{
 
@@ -38,7 +38,7 @@ class GitRepositoryPresenter(val view: IGitRepositoryView,
                         retrievedData.sortByDescending {
                             it.updatedAt
                         }
-                        view.updateView(retrievedData.toList())
+                        view.updateView(retrievedData.toList(), response.body()!!.totalCount!!.toInt())
                     }
                 }
 

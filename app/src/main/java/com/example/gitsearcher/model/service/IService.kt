@@ -18,12 +18,13 @@ interface IService {
     @GET(Constants.SEARCH)
     fun getRepositorys(
         @Query("q")     search: String,
-        @Query("sort")  sort: String
+        @Query("sort")  sort: String,
+        @Query("page")  page: String,
+        @Query("per_page") per_page: String
+
     ) : Call<GitRepositoryHeader>
 
     companion object{
-
-
         /**
          * Create API call method
          *

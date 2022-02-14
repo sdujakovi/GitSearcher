@@ -13,5 +13,4 @@ data class GitRepository(
     @SerializedName("description"       ) var description      : String?           = null,
     @SerializedName("updated_at"        ) var updatedAt        : String?           = null,
 
-
 ):Parcelable {}
