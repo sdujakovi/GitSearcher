@@ -12,7 +12,7 @@
 A simple project made based on my search for a student internship. Implements MVP architecture, Retrofit calls, use of RecyclerView and more.
 
 
-## Envisioned designe
+## Designe
 
 Designed in AdobeXD tool. Designe combines complementary and monochromatic colors. Toolbars are same on all windows and implement a color intensity animation.
 
